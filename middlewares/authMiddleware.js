@@ -13,9 +13,10 @@ const authMiddleware = (req, res, next) => {
   }
 };
 async function generateToken(user) {
+  console.log("user",user)
   try {
       const payload = { sub: user._id };
-      const token = await jwt.sign(payload, secret, { expiresIn: '1h' });
+      const token = await jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
       return token;
   } catch (err) {
       console.error(err);
