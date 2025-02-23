@@ -22,4 +22,4 @@ async function generateToken(user) {
       return null;
   }
 }
-module.exports = authMiddleware;
+module.exports = {authMiddleware, generateToken};
